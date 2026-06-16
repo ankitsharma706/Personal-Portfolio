@@ -1,0 +1,9 @@
+{
+  "version": "1.0.5",
+  "build": "20260615-0326",
+  "environment": "production",
+  "framework": "React 18",
+  "bundler": "Vite",
+  "designSystem": "Apricot Whisper",
+  "architect": "Ankit Sharma"
+}
