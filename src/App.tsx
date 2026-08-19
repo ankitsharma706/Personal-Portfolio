@@ -11,7 +11,7 @@ import DSACoding from "./components/DSACoding";
 import DevOpsJourney from "./components/DevOpsJourney"; // refresh import
 import Contact from "./components/Contact"; // refresh import
 import Footer from "./components/Footer";
-import VercelAnalytics from "./components/VercelAnalytics";
+
 
 export default function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
@@ -111,8 +111,7 @@ export default function App() {
 
       <Footer theme={theme} setTheme={setTheme} />
       
-      {/* Analytics */}
-      <VercelAnalytics />
+
 
       {/* Placeholder for Command Menu implementation */}
       {commandMenuOpen && (

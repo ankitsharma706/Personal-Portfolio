@@ -8,7 +8,7 @@ interface FooterProps {
 
 export default function Footer({ theme, setTheme }: FooterProps) {
   return (
-    <footer className="w-full border-t border-[var(--color-border)] bg-[var(--bg-secondary)] py-12 mt-20">
+    <footer className="relative z-10 w-full border-t border-[var(--color-border)] bg-[var(--card-bg)] py-12 mt-20">
       <div className="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         <div className="flex flex-col items-center md:items-start text-center md:text-left">

@@ -2,28 +2,55 @@
 
 ![Profile Views](https://visitor-badge.laobi.icu/badge?page_id=ankitsharma706.ankitsharma706)
 
-# Ankit Sharma
+# Ankit Sharma - Personal Portfolio
 
-### Full Stack Engineer · AI Systems · Blockchain · Smart City · FinTech
+![React](https://img.shields.io/badge/React_19-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Tailwind CSS v4](https://img.shields.io/badge/Tailwind_v4-06B6D4?style=flat-square&logo=tailwindcss&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
 
-![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
-![Next.js](https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=nextdotjs&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=nodedotjs&logoColor=white)
-![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white)
-![Solidity](https://img.shields.io/badge/Solidity-363636?style=flat-square&logo=solidity&logoColor=white)
-![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white)
-![Netlify Status](https://api.netlify.com/api/v1/badges/83bb25b3-48b6-4ee3-bbc8-cfd61de20a64/deploy-status)
+Welcome to the source code of my personal portfolio. This repository contains a modern, full-stack React application showcasing my engineering projects, technical writing, and GitHub activity in real-time.
 
 📍 Bhubaneswar & Jamshedpur, India &nbsp;·&nbsp; 🌐 Open to Remote — India & Global
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat-square&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/ankitsharma706/)
 [![X](https://img.shields.io/badge/X-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/ankit_sharma708)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat-square&logo=gmail&logoColor=white)](mailto:ankitsharma706contact@gmail.com)
-[![Portfolio](https://img.shields.io/badge/Portfolio-000000?style=flat-square&logo=vercel&logoColor=white)](https://caffenia.vercel.app/)
 [![Buy Me a Coffee](https://img.shields.io/badge/Support-FFDD00?style=flat-square&logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/ankitsharma7)
-
 </div>
+
+## 🌐 About This Portfolio Architecture
+
+This portfolio is not just a static site; it's a demonstration of modern frontend architecture and full-stack capabilities. Designed with a **premium, Apple/Linear-inspired aesthetic**, it features a fully custom CSS variable-based theming system, fluid animations, and real-time data integrations.
+
+### Core Engineering Highlights:
+- **Full-Stack Vite Setup:** Uses Express as the web server with Vite mounted as middleware in development (`server.ts`). This allows seamless API routes and Server-Side Rendering (SSR) capabilities if needed, all while maintaining blazingly fast HMR.
+- **Dynamic GitHub Telemetry:** Integrates directly with GitHub REST APIs and third-party stat generators to display live contribution graphs, repository languages, and stars.
+- **Advanced UI/UX:** Features complex SVG filters (Gooey effect for toasts), a custom mouse-tracking spotlight gradient, and buttery-smooth intersection observer animations powered by Framer Motion.
+- **Zero-Flicker Theming:** The light/dark mode implementation reads directly from `localStorage` on initial load and synchronizes with data-attributes to prevent the dreaded flash of unstyled content (FOUC).
+
+## 🚀 Local Development
+
+To run this portfolio locally on your machine:
+
+```bash
+# Clone the repository
+git clone https://github.com/ankitsharma706/Personal-Portfolio.git
+cd Personal-Portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server (runs Express + Vite on port 3000)
+npm run dev
+```
+
+## ✨ Repository Features
+
+- **Modern Stack:** Built with React 19, Tailwind CSS v4, and Framer Motion.
+- **Custom Backend:** Uses Express with Vite middleware for a unified full-stack development environment (`tsx server.ts`).
+- **Live GitHub Integrations:** Dynamically fetches repository stats and contribution graphs using the GitHub API.
+- **Premium UI:** Features Dark/Light mode, gooey SVG filters, custom cursor spotlight, and interactive hover states.
 
 ---
 
