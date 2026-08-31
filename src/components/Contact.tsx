@@ -1,144 +1,107 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import React from "react";
 import { motion } from "motion/react";
-import { Mail, Linkedin, Github, Twitter, Instagram, CornerDownRight } from "lucide-react";
-
-// Cleaned unused DiscordIcon
-
+import { Mail, Github, Instagram, ArrowRight, Copy, ExternalLink } from "lucide-react";
+import toast from 'react-hot-toast';
 
 export default function Contact() {
-  const contacts = [
-    {
-      icon: <Mail className="w-5 h-5 text-apricot-accent" />,
-      label: "Email Protocol",
-      value: "ankitsharma706contact@gmail.com",
-      href: "mailto:ankitsharma706contact@gmail.com"
-    },
-    {
-      icon: <Linkedin className="w-5 h-5 text-apricot-accent" />,
-      label: "LinkedIn Professional",
-      value: "in/ankitsharma706",
-      href: "https://www.linkedin.com/in/ankitsharma706/"
-    },
-    {
-      icon: <Github className="w-5 h-5 text-apricot-accent" />,
-      label: "GitHub Source Archive",
-      value: "ankitsharma706",
-      href: "https://github.com/ankitsharma706"
-    },
-    {
-      icon: <Twitter className="w-5 h-5 text-apricot-accent" />,
-      label: "X (Twitter) Channel",
-      value: "@ankit_sharma708",
-      href: "https://x.com/ankit_sharma708"
-    },
-    {
-      icon: <Instagram className="w-5 h-5 text-apricot-accent" />,
-      label: "Instagram Presence",
-      value: "@oxitasm",
-      href: "https://www.instagram.com/oxitasm/"
-    },
-    
-  ];
+  const email = "ankitkumar724310@gmail.com";
+  const github = "https://github.com/ankitsharma706?utm_source=chatgpt.com";
+  
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText(email);
+    toast.success("Email copied successfully");
+  };
+
+  const handleOpenGithub = () => {
+    toast.success("Opening GitHub Profile");
+    setTimeout(() => {
+      window.open(github, '_blank');
+    }, 1000);
+  };
 
   return (
-    <section
-      id="contact"
-      className="bg-apricot-bg py-24 relative border-t border-apricot-border"
-    >
-      <div className="max-w-7xl mx-auto px-6 flex flex-col items-center justify-center text-center">
-        
-        {/* Core title */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
-          className="max-w-2xl select-none"
-        >
-          <span className="font-mono text-[10px] font-bold text-apricot-accent tracking-[0.25em] uppercase">
-            [ OUTBOUND INTERACTION INTERLINK ]
-          </span>
-          <h2 
-            className="font-serif italic font-medium text-apricot-text mt-4 tracking-tight"
-            style={{ fontSize: "clamp(28px, 5vw, 48px)", lineHeight: "1.15" }}
-          >
-            Let's Build Something <br />
-            <span className="text-apricot-accent font-roman">
-              That Endures.
-            </span>
-          </h2>
+    <section id="contact" className="w-full py-24 px-6 lg:px-12 max-w-5xl mx-auto relative z-10">
+      <div className="flex flex-col items-center mb-16 text-center">
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Let's Connect</h2>
+        <p className="text-[var(--text-muted)] max-w-2xl text-lg">
+          Currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!
+        </p>
+      </div>
 
-          <p className="font-sans text-base sm:text-lg text-apricot-text-muted mt-6 leading-relaxed max-w-xl mx-auto">
-            Open to founding engineer positions, infrastructure architecture roles, 
-            technical co-founder discussions, and high-concurrency software designs.
-          </p>
-        </motion.div>
-
-        {/* Dynamic 5 columns grid of social panels */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-6 w-full max-w-7xl mt-16 font-sans">
-          {contacts.map((c, idx) => (
-            <motion.a
-              key={idx}
-              href={c.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-80px" }}
-              transition={{ delay: idx * 0.08, duration: 0.5 }}
-              whileHover={{ y: -4, borderColor: "#B8436E" }}
-              className="premium-card p-4 sm:p-5.5 flex flex-col items-start border border-apricot-border bg-apricot-card rounded relative group text-left outline-none focus:ring-1"
-            >
-              {/* Box core icon */}
-              <div className="w-9 h-9 rounded bg-apricot-secondary border border-apricot-border flex items-center justify-center mb-5">
-                {c.icon}
+      <motion.div 
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="premium-card w-full flex flex-col md:flex-row overflow-hidden shadow-2xl"
+      >
+        {/* Left / Top: Info Section */}
+        <div className="bg-[var(--bg-secondary)] p-10 md:w-1/2 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[var(--color-border)]">
+          <div>
+            <h3 className="text-2xl font-bold text-[var(--text-primary)] mb-4">Contact Information</h3>
+            <p className="text-[var(--text-secondary)] mb-10 leading-relaxed">
+              Reach out via email or connect with me on GitHub to discuss projects, opportunities, or collaborations.
+            </p>
+            
+            <div className="space-y-6">
+              <div className="flex items-center gap-4 text-[var(--text-primary)] font-medium group">
+                <div className="w-12 h-12 rounded-full bg-[var(--card-bg)] border border-[var(--color-border)] flex items-center justify-center text-[var(--color-primary)] shadow-sm group-hover:scale-110 transition-transform">
+                  <Mail className="w-5 h-5" />
+                </div>
+                <span>{email}</span>
               </div>
-
-              {/* Title category */}
-              <span className="font-mono text-[9px] text-apricot-text-dim uppercase font-bold">
-                {c.label}
-              </span>
-
-              {/* Value entry with break-all, overflow-wrap, hyphens */}
-              <span 
-                className="text-xs sm:text-sm font-bold text-apricot-text group-hover:text-apricot-accent mt-1 transition-colors block w-full select-text"
-                style={{ wordBreak: "break-all", overflowWrap: "break-word", hyphens: "auto" }}
-              >
-                {c.value}
-              </span>
-
-              {/* Link guide bottom indicator */}
-              <div className="flex items-center gap-1.5 font-mono text-[9px] text-apricot-accent group-hover:text-apricot-text mt-4 transition-colors select-none">
-                <span>CONNECT SECURELY</span>
-                <CornerDownRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
+              <div className="flex items-center gap-4 text-[var(--text-primary)] font-medium group">
+                <div className="w-12 h-12 rounded-full bg-[var(--card-bg)] border border-[var(--color-border)] flex items-center justify-center text-[var(--text-primary)] shadow-sm group-hover:scale-110 transition-transform">
+                  <Github className="w-5 h-5" />
+                </div>
+                <span>ankitsharma706</span>
               </div>
-
-            </motion.a>
-          ))}
+              <div className="flex items-center gap-4 text-[var(--text-primary)] font-medium group">
+                <div className="w-12 h-12 rounded-full bg-[var(--card-bg)] border border-[var(--color-border)] flex items-center justify-center text-[var(--text-primary)] shadow-sm group-hover:scale-110 transition-transform">
+                  <Instagram className="w-5 h-5" />
+                </div>
+                <span>@oxitasm</span>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Active status pill */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          className="mt-16 flex items-center gap-2.5 bg-apricot-card border border-apricot-border px-5 py-2.5 rounded shadow-sm select-text"
-        >
-          <span className="relative flex h-2.5 w-2.5 shrink-0">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span className="font-mono text-[10px] text-apricot-text font-bold uppercase tracking-wider">
-            Available for Select Collaborations — 2026
-          </span>
-        </motion.div>
+        {/* Right / Bottom: Action Section */}
+        <div className="p-10 md:w-1/2 flex flex-col justify-center space-y-4">
+          <h3 className="text-xl font-bold text-[var(--text-primary)] mb-2">Quick Actions</h3>
+          
+          <a 
+            href={`mailto:${email}`}
+            className="group flex items-center justify-between w-full py-4 px-6 rounded-xl bg-[var(--text-primary)] text-[var(--bg-primary)] font-medium hover:scale-[1.02] transition-transform shadow-md"
+          >
+            <span className="flex items-center gap-3">
+              <Mail className="w-5 h-5" />
+              Send Email
+            </span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+          </a>
 
-      </div>
+          <button 
+            onClick={handleCopyEmail}
+            className="group flex items-center justify-between w-full py-4 px-6 rounded-xl premium-card font-medium hover:border-[var(--color-primary)] transition-colors"
+          >
+            <span className="flex items-center gap-3 text-[var(--text-primary)]">
+              <Copy className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--color-primary)] transition-colors" />
+              Copy Email Address
+            </span>
+          </button>
+
+          <button 
+            onClick={handleOpenGithub}
+            className="group flex items-center justify-between w-full py-4 px-6 rounded-xl premium-card font-medium hover:border-[var(--text-primary)] transition-colors"
+          >
+            <span className="flex items-center gap-3 text-[var(--text-primary)]">
+              <Github className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors" />
+              Open GitHub
+            </span>
+            <ExternalLink className="w-5 h-5 text-[var(--text-secondary)] group-hover:text-[var(--text-primary)] transition-colors" />
+          </button>
+        </div>
+      </motion.div>
     </section>
   );
 }

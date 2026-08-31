@@ -1,303 +1,183 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap');
 
 @import "tailwindcss";
 
 /* ═══════════════════════════════════════════════════════════
-   THEME CSS VARIABLES (LIGHT DEFAULTS AND DARK PRESETS)
+   PREMIUM PORTFOLIO THEME (APPLE / LINEAR INSPIRED)
    ═══════════════════════════════════════════════════════════ */
 :root, [data-theme="light"] {
-  --bg-primary: #F7F1E8;
-  --bg-secondary: #EDE6D9;
-  --card-bg: #FCFAF5;
-  --color-accent-primary: #006B6B;
-  --color-accent-hover: #005757;
-  --color-accent-secondary: #818263;
-  --color-accent-highlight: #1F4A7A;
-  --text-primary: #1C2422;
-  --text-secondary: #4C5451;
-  --text-muted: #78827F;
-  --color-border-primary: #E5DFC4;
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F8FAFC;
+  --card-bg: #FFFFFF;
+  --color-primary: #2563EB;
+  --color-secondary: #0F172A;
+  --color-accent: #06B6D4;
+  --text-primary: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;
+  --color-border: #E2E8F0;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 [data-theme="dark"] {
-  --bg-primary: #04060A;
-  --bg-secondary: #070C14;
-  --card-bg: #0A1020;
-  --color-accent-primary: #00E5CC;
-  --color-accent-hover: #00B8A4;
-  --color-accent-secondary: #A07840;
-  --color-accent-highlight: #4A5A70;
-  --text-primary: #E8EDF5;
-  --text-secondary: #8A9BB8;
-  --text-muted: #4A5A70;
-  --color-border-primary: rgba(255, 255, 255, 0.05);
+  --bg-primary: #0B1120;
+  --bg-secondary: #0F172A;
+  --card-bg: #111827;
+  --color-primary: #3B82F6;
+  --color-secondary: #1E293B;
+  --color-accent: #22D3EE;
+  --text-primary: #F3F4F6;
+  --text-secondary: #9CA3AF;
+  --text-muted: #6B7280;
+  --color-border: rgba(255, 255, 255, 0.1);
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.5);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.4), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
 }
 
 @theme {
-  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
-  --font-serif: "Cormorant Garamond", Georgia, serif;
-  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-mono: "Fira Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
 
-  /* Redesigned Premium CSS Variables */
   --color-bg-primary: var(--bg-primary);
   --color-bg-secondary: var(--bg-secondary);
   --color-card-bg: var(--card-bg);
-  --color-accent-primary: var(--color-accent-primary);
-  --color-accent-hover: var(--color-accent-hover);
-  --color-accent-secondary: var(--color-accent-secondary);
-  --color-accent-highlight: var(--color-accent-highlight);
+  --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
+  --color-accent: var(--color-accent);
   --color-text-primary: var(--text-primary);
   --color-text-secondary: var(--text-secondary);
   --color-text-muted: var(--text-muted);
-  --color-border-primary: var(--color-border-primary);
-
-  /* Bridge standard Apricot Whisper colors to the new modular theme colors to keep components safe */
-  --color-apricot-bg: var(--bg-primary);
-  --color-apricot-secondary: var(--bg-secondary);
-  --color-apricot-card: var(--card-bg);
-  --color-apricot-accent: var(--color-accent-primary);
-  --color-apricot-accent-hover: var(--color-accent-hover);
-  --color-apricot-text: var(--text-primary);
-  --color-apricot-text-muted: var(--text-secondary);
-  --color-apricot-text-dim: var(--text-muted);
-  --color-apricot-border: var(--color-border-primary);
-
-  /* Bridge legacy layout variables */
-  --color-primary: var(--bg-primary);
-  --color-secondary: var(--bg-secondary);
-  --color-card: var(--card-bg);
-  --color-cream: var(--bg-secondary);
-
-  --color-accent-rose: var(--color-accent-primary);
-  --color-accent-warm: var(--color-accent-highlight);
-  --color-accent-gold: var(--color-accent-secondary);
-  --color-accent-sage: var(--color-accent-secondary);
-
-  --color-text-primary: var(--text-primary);
-  --color-text-secondary: var(--text-secondary);
-  --color-text-muted: var(--text-muted);
-  --color-text-ghost: var(--text-muted);
-
-  --color-border-hair: var(--color-border-primary);
-  --color-border-soft: var(--color-border-primary);
-  --color-border-strong: var(--color-border-primary);
-
-  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --color-border: var(--color-border);
 }
 
-/* Global configurations with explicit theme variable mappings */
+/* Base Styles */
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-sans);
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  background-image: 
-    radial-gradient(ellipse at 20% 50%, var(--bg-secondary) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, var(--bg-secondary) 0%, transparent 50%),
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.02'/%3E%3C/svg%3E");
+  margin: 0;
+  padding-top: 72px; /* For fixed nav */
 }
 
-/* Elegant visual transitions for theme changes (300ms) */
-html, body, .premium-card, .glass-panel, header, nav, footer, div, section, p, h1, h2, h3, h4, span, a, button, input, textarea, select {
-  transition: background-color 300ms ease, border-color 300ms ease, color 300ms ease, fill 300ms ease, stroke 300ms ease, box-shadow 300ms ease;
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes blob {
+  0% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+  100% { transform: translate(0px, 0px) scale(1); }
+}
+
+.animate-blob {
+  animation: blob 7s infinite;
+}
+
+/* Smooth transitions */
+html, body, .premium-card, header, nav, footer, a, button {
+  transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease, box-shadow 200ms ease;
 }
 
 ::selection {
-  background-color: var(--color-accent-primary);
-  color: var(--bg-primary);
+  background-color: var(--color-primary);
+  color: #FFFFFF;
 }
 
-/* Custom interactive rings */
+/* Premium Card (Linear Style) */
+.premium-card {
+  background-color: var(--card-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.premium-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+/* Interactive Focus */
 .focus-ring {
   outline: none;
 }
 .focus-ring:focus-visible {
-  outline: 2px solid var(--color-accent-primary);
+  outline: 2px solid var(--color-primary);
   outline-offset: 2px;
+  border-radius: 4px;
 }
 
-/* Custom scrollbars */
+/* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-primary);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-border-primary);
-  border-radius: 3.5px;
+  background: var(--text-muted);
+  border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-accent-primary);
+  background: var(--text-secondary);
 }
 
 .hide-scrollbar::-webkit-scrollbar {
   display: none;
 }
 .hide-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-/* Dot grid background design in a subtle, editorial color */
-.dot-grid {
-  /* Dot grid removed per user request */
+/* Background Grid Pattern */
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, var(--color-border) 1px, transparent 1px),
+                    linear-gradient(to bottom, var(--color-border) 1px, transparent 1px);
+  background-size: 40px 40px;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 80%);
 }
 
-/* Glassmorphism/Tactile paper panels and premium cards with dynamic hover highlights */
-.glass-panel {
-  background-color: var(--card-bg);
-  border: 1px solid var(--color-border-primary);
-  border-radius: 0.125rem;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.03);
-}
-.glass-panel:hover {
-  border-color: var(--color-accent-primary);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-}
-
-.glass-panel, .premium-card {
-  position: relative;
-  overflow: hidden;
-}
-
-.glass-panel::before, .premium-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: radial-gradient(
-    320px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
-    var(--color-accent-primary) 0%,
-    transparent 100%
-  );
-  pointer-events: none;
-  opacity: 0;
-  z-index: 5;
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.glass-panel:hover::before, .premium-card:hover::before {
-  opacity: 0.08;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PHASE 4 — GLOBAL CSS FIXES
-   ═══════════════════════════════════════════════════════════ */
-
-/* Prevent horizontal scroll globally */
-html, body {
-  overflow-x: hidden;
-  max-width: 100vw;
-}
-
-/* Box sizing reset */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-/* Prevent grid children from overflowing */
-.grid > * {
-  min-width: 0;
-  min-height: 0;
-}
-
-/* Fluid images */
-img, video, svg {
-  max-width: 100%;
-  height: auto;
-}
-
-/* Focus rings — editorial style */
-:focus-visible {
-  outline: 2px solid var(--color-accent-rose);
-  outline-offset: 3px;
-  border-radius: 2px;
-}
-
-/* Body padding for fixed nav */
-body {
-  padding-top: 64px;
-}
-
-@media (max-width: 639px) {
-  body {
-    padding-top: 56px;
-  }
-}
-
-/* Smooth scroll */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Section spacing reset */
-section {
-  position: relative;
-  width: 100%;
-}
-
-/* Prevent Cormorant from breaking layouts */
-h1, h2, h3, h4 {
-  overflow-wrap: break-word;
-  word-break: break-word;
-  max-width: 100%;
-  line-height: 1.1;
-}
-
-/* Paragraph max-width for readability */
+/* Typography Constraints */
 p {
   max-width: 70ch;
+  line-height: 1.6;
+}
+h1, h2, h3, h4 {
+  letter-spacing: -0.02em;
 }
 
-/* Remove margin collapse issues */
-section + section {
-  margin-top: 0;
+/* Gooey Toast Styles */
+.gooey-toast {
+  filter: url(#gooey);
+  animation: gooey-pop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
 }
 
-/* ═══════════════════════════════════════════════════════════
-   PREMIUM DARK THEME HARDCODED SPECIFIC OVERRIDES
-   ═══════════════════════════════════════════════════════════ */
-[data-theme="dark"] .bg-\[\#FFFDF9\] {
-  background-color: var(--card-bg) !important;
+@keyframes gooey-pop {
+  0% { transform: scale(0.8) translateY(20px); opacity: 0; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
 }
-[data-theme="dark"] .bg-\[\#FFFDF9\]\/95 {
-  background-color: rgba(24, 24, 24, 0.95) !important;
-}
-[data-theme="dark"] .bg-\[\#FFFDF9\]\/90 {
-  background-color: rgba(24, 24, 24, 0.90) !important;
-}
-[data-theme="dark"] .bg-\[\#FFFDF9\]\/60 {
-  background-color: rgba(24, 24, 24, 0.60) !important;
-}
-[data-theme="dark"] .hover\:bg-\[\#F3EBE0\]:hover {
-  background-color: var(--bg-secondary) !important;
-}
-[data-theme="dark"] .bg-\[\#241C1A\] {
-  background-color: #050505 !important;
-}
-
-/* ═══════════════════════════════════════════════════════════
-   PREMIUM LIGHT MODE PAPER TEXTURE & DESKTOP CURSOR HIDING
-   ═══════════════════════════════════════════════════════════ */
-
-/* Elite Architectural Paper Overlay (only in light theme to lock in premium editorial journal feel) */
-[data-theme="light"] body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  z-index: 999999;
-  opacity: 0.038;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 250 250' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='paper-bump'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.04' numOctaves='4' stitchTiles='stitch' result='noise'/%3E%3CfeDiffuseLighting in='noise' lighting-color='%23fbf8f3' surfaceScale='3'%3E%3CfeDistantLight azimuth='60' elevation='50'/%3E%3C/feDiffuseLighting%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23paper-bump)'/%3E%3C/svg%3E");
-  mix-blend-mode: multiply;
-}
-

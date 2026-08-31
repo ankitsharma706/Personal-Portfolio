@@ -44,10 +44,10 @@
           if (storedTheme === 'dark' || storedTheme === 'light') {
             document.documentElement.setAttribute('data-theme', storedTheme);
           } else {
-            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.setAttribute('data-theme', 'light');
           }
         } catch (e) {
-          document.documentElement.setAttribute('data-theme', 'dark');
+          document.documentElement.setAttribute('data-theme', 'light');
         }
       })();
     </script>
