@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "motion/react";
-import { Github, Star, GitFork, BookOpen, Clock, Activity, GitCommit } from "lucide-react";
+import { Github, Star, GitFork, BookOpen, Clock, Activity } from "lucide-react";
 
 export default function GitHubShowcase() {
   const username = "ankitsharma706";
   const [repos, setRepos] = useState<any[]>([]);
-  const [commits, setCommits] = useState<any[]>([]);
-  const [isLoadingCommits, setIsLoadingCommits] = useState(true);
 
   useEffect(() => {
     // Fetch top repositories from GitHub REST API
@@ -15,51 +13,6 @@ export default function GitHubShowcase() {
       .then(data => {
         if (Array.isArray(data)) {
           setRepos(data);
-          
-          // Now fetch latest events
-          fetch(`https://api.github.com/users/${username}/events/public?per_page=15`)
-            .then(res => res.json())
-            .then(eventsData => {
-              if (Array.isArray(eventsData)) {
-                const pushEvents = eventsData.filter((e: any) => e.type === "PushEvent");
-                
-                if (pushEvents.length > 0) {
-                  const extractedCommits = pushEvents.flatMap((e: any) => 
-                    e.payload.commits.map((c: any) => ({
-                      ...c,
-                      repoName: e.repo.name,
-                      createdAt: e.created_at
-                    }))
-                  ).slice(0, 5); // get top 5 latest commits
-                  setCommits(extractedCommits);
-                  setIsLoadingCommits(false);
-                } else if (data.length > 0) {
-                  // Fallback: fetch commits from the most recently updated repository
-                  const latestRepo = data[0].name;
-                  fetch(`https://api.github.com/repos/${username}/${latestRepo}/commits?per_page=5`)
-                    .then(res => res.json())
-                    .then(commitData => {
-                      if (Array.isArray(commitData)) {
-                        const extractedCommits = commitData.map((c: any) => ({
-                          sha: c.sha,
-                          message: c.commit.message,
-                          repoName: latestRepo,
-                          createdAt: c.commit.author.date
-                        }));
-                        setCommits(extractedCommits);
-                      }
-                    })
-                    .catch(console.error)
-                    .finally(() => setIsLoadingCommits(false));
-                } else {
-                  setIsLoadingCommits(false);
-                }
-              }
-            })
-            .catch((err) => {
-              console.error(err);
-              setIsLoadingCommits(false);
-            });
         }
       })
       .catch(console.error);
@@ -116,43 +69,24 @@ export default function GitHubShowcase() {
           />
         </motion.div>
 
-        {/* Latest Commits */}
+        {/* GitHub Contributions Streak */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          className="premium-card p-6 flex flex-col lg:col-span-1 overflow-hidden shadow-xl"
+          className="premium-card p-6 flex flex-col justify-center items-center lg:col-span-1 shadow-xl hover:shadow-2xl transition-shadow w-full"
         >
-          <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-4 flex items-center gap-2">
+          <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-6 self-start w-full border-b border-[var(--color-border)] pb-2 flex items-center gap-2">
             <Activity className="w-5 h-5 text-[var(--color-primary)]" />
-            Latest Commits
+            Contributions
           </h3>
-          <div className="flex flex-col gap-4 overflow-y-auto pr-2 hide-scrollbar">
-            {isLoadingCommits ? (
-              <div className="text-[var(--text-muted)] text-sm animate-pulse">Loading latest activity...</div>
-            ) : commits.length > 0 ? (
-              commits.map((commit, i) => (
-                <div key={i} className="flex gap-3 items-start border-l-2 border-[var(--color-border)] pl-3 pb-2">
-                  <GitCommit className="w-4 h-4 text-[var(--text-muted)] mt-1 flex-shrink-0 -ml-[21px] bg-[var(--bg-primary)]" />
-                  <div className="flex flex-col">
-                    <a 
-                      href={`https://github.com/${commit.repoName}/commit/${commit.sha}`} 
-                      target="_blank" 
-                      rel="noreferrer"
-                      className="text-sm font-medium text-[var(--text-primary)] hover:text-[var(--color-primary)] truncate max-w-[250px] transition-colors"
-                    >
-                      {commit.message.split('\n')[0]}
-                    </a>
-                    <span className="text-xs text-[var(--text-muted)] truncate max-w-[250px]">{commit.repoName}</span>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <div className="text-[var(--text-muted)] text-sm italic">
-                No recent public commits found in the last 90 days.
-              </div>
-            )}
+          <div className="w-full flex-grow flex items-center justify-center overflow-x-auto">
+            <img 
+              src={`https://ghchart.rshah.org/2563EB/${username}`}
+              alt="GitHub Contributions Graph" 
+              className="w-full min-w-[300px] opacity-80 hover:opacity-100 transition-opacity"
+            />
           </div>
         </motion.div>
       </div>

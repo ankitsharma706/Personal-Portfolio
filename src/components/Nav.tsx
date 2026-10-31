@@ -130,7 +130,7 @@ export default function Nav({ theme, setTheme }: NavProps) {
 
             <a 
               href="#contact"
-              className="hidden sm:flex items-center justify-center px-5 py-2 text-sm font-medium text-white bg-[var(--text-primary)] rounded-full hover:scale-105 transition-transform"
+              className="hidden sm:flex items-center justify-center px-5 py-2 text-sm font-medium text-[var(--bg-primary)] bg-[var(--text-primary)] rounded-full hover:scale-105 transition-transform"
             >
               Hire Me
             </a>
